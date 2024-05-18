@@ -14,7 +14,7 @@ response = client.chat.completions.create(
                 {"type": "text", "text": "Why is this image funny?"},
                 {
                     "type": "image_url",
-                    "image_url": "https://files.catbox.moe/e9p1z1.png",
+                    "image_url": "https://files.catbox.moe/e9p1z1.png", # or add a base64 string here of "data:image....base64,..." type
                 },
             ],
         }
