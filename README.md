@@ -11,7 +11,6 @@
 > - v1/chat/completions: chat.py
 > - v1/chat/completions + tools: tools.py
 > - v1/chat/completions + vision: vision.py
-> - v1/completions: completions.py
 
 ## **/images**
 
