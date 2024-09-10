@@ -6,6 +6,6 @@ json_data = {
     "src": "ko",
     "target": "en",
 }
-url = "https://zukijourney.xyzbot.net/v1/text/translations"
+url = "https://api.zukijourney.com/v1/text/translations"
 response = requests.post(url, data=json.dumps(json_data), headers=headers)
 print(response.text)

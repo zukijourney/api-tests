@@ -1,6 +1,6 @@
 import requests
 
-url = "https://zukijourney.xyzbot.net/v1/images/upscale"
+url = "https://api.zukijourney.com/v1/images/upscale"
 headers = {"Authorization": "Bearer zu-<put your own here>"}
 
 response = requests.post(url, headers=headers, files={"file": open("gaysex.png", "rb")})
