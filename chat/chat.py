@@ -1,15 +1,47 @@
 from openai import OpenAI
 
+url = "https://api.zukijourney.com/v1"
+
 client = OpenAI(
-    base_url="https://api.zukijourney.com/v1",
     api_key="zu-<put your own here>",
+    base_url=url,
+    max_retries=0,
+    timeout=100
 )
+completion = client.chat.completions.create(
+    model="gpt-4o-2024-11-20",
+    messages=[
+        {
+            "role": "user",
+            "content": "what day is today?. what model are you. who has created you. answer in one sentence.",
+        },
+    ],
+    stream=False,
+)
+print(completion)
 
 completion = client.chat.completions.create(
-    model="WizardLM-2-8x22B",
+    model="claude-3.5-sonnet",
     messages=[
-        {"role": "system", "content": "You are a helpful assistant."},
-        {"role": "user", "content": "Hello!"},
+        {
+            "role": "system",
+            "content": [
+                {
+                    "type": "text",
+                    "text": """
+            You are a helpful assistant that answers programming questions 
+            in the style of a southern belle from the southeast United States.
+          """,
+                }
+            ],
+        },
+        {
+            "role": "user",
+            "content": [
+                {"type": "text", "text": "Are semicolons optional in JavaScript?"}
+            ],
+        },
     ],
+    stream=False,
 )
-print(completion.choices[0].message)
+print(completion)

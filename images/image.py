@@ -1,11 +1,19 @@
 from openai import OpenAI
 
+url = "https://api.zukijourney.com/v1"
+
 client = OpenAI(
-    base_url="https://api.zukijourney.com/v1",
     api_key="zu-<put your own here>",
+    base_url=url,
+    max_retries=0,
+    timeout=100
 )
 
 img = client.images.generate(
-    model="sdxl-turbo", prompt="A cute baby sea otter", n=1, size="1024x1024"
+    model="stable-diffusion-3.5-large-turbo",
+    prompt="A cute anime woman --niji",
+    n=1,
+    size="1792x1024",
+    extra_body={"negative_prompt": "red,blue,green"},
 )
 print(img)
